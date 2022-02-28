@@ -16,9 +16,6 @@ public:
 	float	toFloat (void) const;
 	int		getRawBits (void) const;
 	void	setRawBits (int const raw);
-	
-	
-	Fixed &	operator = (Fixed const &other);
 
 private:
 	int					value;
