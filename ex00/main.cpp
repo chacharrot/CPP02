@@ -3,11 +3,12 @@
 int main()
 {
 	Fixed a;
-	Fixed b(a); // 복사생성자
-	b = a; // 복사 대입 연산자
+	Fixed b(a);
+	b = a;
 	Fixed d;
-	Fixed c = d; //복사생성자
+	Fixed c = d;
 
+	a.setRawBits(3);
 	std::cout << "a  " << a.getRawBits() << std::endl;
 	std::cout << "b  " << b.getRawBits() << std::endl;
 	std::cout << "c  " << c.getRawBits() << std::endl;

@@ -17,19 +17,16 @@ Fixed::Fixed(const Fixed &other): value(other.value)
 
 int		Fixed::getRawBits(void) const 
 {
-	std::cout << "GetRawBits       " << this << std::endl;
-	return value;
+	return this->value;
 }
 
 void	Fixed::setRawBits(int const raw) 
 {
-	std::cout << "SetRawBits       " << this << std::endl;
-	value = raw;
+	this->value = raw;
 }
 
 Fixed&	Fixed::operator = (Fixed &other) 
 {
-	std::cout << "Opertor =        " << this << std::endl;
 	this->value = other.value;
 	return *this;
 }
