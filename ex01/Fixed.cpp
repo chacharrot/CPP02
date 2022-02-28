@@ -1,26 +1,30 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed () : value(0)
+Fixed::Fixed() : value(0)
 {
-	std::cout << this << " Default constuctor" << std::endl;
+	std::cout << "Default constuctor    " << this << std::endl;
+}
+
+Fixed::~Fixed()
+{
+	std::cout << "Destructor    " << this << std::endl;
+}
+
+Fixed::Fixed(const Fixed &other): value(other.value)
+{
+	std::cout << "Copy constuctor  " << this << std::endl;
 }
 
 Fixed::Fixed (int const valueInt)
 {
 	this->value = valueInt << fixed;
-	std::cout << this << " Int constuctor with value " << this->value << std::endl;
+	std::cout << "Int constuctor " << this <<  std::endl;
 }
 
 Fixed::Fixed (float const valueFloat)
 {
 	this->value = roundf(valueFloat * (1 << fixed));
-	std::cout << this << " Float constuctor with value " << this->value << std::endl;
-}
-
-Fixed::Fixed(const Fixed &other)
-{
-	this->value = other.value;
-	std::cout << this << " Copy constuctor" << std::endl;
+	std::cout << "Float constuctor " << this <<  std::endl;
 }
 
 float	Fixed::toFloat (void) const
@@ -53,9 +57,4 @@ std::ostream &	operator << (std::ostream &ost, Fixed const &other)
 {
 	ost << other.toFloat();
 	return ost;
-}
-
-Fixed::~Fixed()
-{
-	std::cout << this << " Destructor" << std::endl;
 }

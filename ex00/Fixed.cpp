@@ -10,12 +10,12 @@ Fixed::~Fixed()
 	std::cout << "Destructor    " << this << std::endl;
 }
 
-Fixed::Fixed(const Fixed &rhs): value(rhs.value)
+Fixed::Fixed(const Fixed &other): value(other.value)
 {
 	std::cout << "Copy constuctor  " << this << std::endl;
 }
 
-int	Fixed::getRawBits(void) const 
+int		Fixed::getRawBits(void) const 
 {
 	std::cout << "GetRawBits       " << this << std::endl;
 	return value;
@@ -27,7 +27,7 @@ void	Fixed::setRawBits(int const raw)
 	value = raw;
 }
 
-Fixed& Fixed::operator = (Fixed &other) 
+Fixed&	Fixed::operator = (Fixed &other) 
 {
 	std::cout << "Opertor =        " << this << std::endl;
 	this->value = other.value;

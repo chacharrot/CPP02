@@ -2,36 +2,39 @@
 
 Fixed::Fixed () : value(0)
 {
-	std::cout << this << " Default constuctor" << std::endl;
+	std::cout << "Default constuctor  " << this << std::endl;
 }
 
 Fixed::Fixed (int const valueInt)
 {
 	this->value = valueInt << fixed;
-	std::cout << this << " Int constuctor with value " << this->value << std::endl;
+	std::cout << "Int constuctor      " << this << std::endl;
 }
 
 Fixed::Fixed (float const valueFloat)
 {
 	this->value = roundf(valueFloat * (1 << fixed));
-	std::cout << this << " Float constuctor with value " << this->value << std::endl;
+	std::cout << "Float constuctor    " << this << std::endl;
 }
 
 Fixed::Fixed (const Fixed &other)
 {
 	this->value = other.value;
-	std::cout << this << " Copy constuctor" << std::endl;
+	std::cout << "Copy constuctor     " << this << std::endl;
 }
 
-float	Fixed::toFloat (void) const {
+float	Fixed::toFloat (void) const 
+{
 	return ((float)value / (1 << fixed));
 }
 
-int	Fixed::toInt (void) const {
-	return (value / (1 << fixed));
+int	Fixed::toInt (void) const
+{
+	return (value >> fixed);
 }
 
-int	Fixed::getRawBits (void)  const {
+int	Fixed::getRawBits (void) const
+{
 	return value;
 }
 
@@ -46,20 +49,29 @@ Fixed &	Fixed::operator = (Fixed const &other)
 	return *this;
 }
 
-Fixed	Fixed::operator + (Fixed const &other) const {
+Fixed	Fixed::operator + (Fixed const &other) const
+{
 	return Fixed(this->toFloat() + other.toFloat());
 }
 
-Fixed	Fixed::operator - (Fixed const &other) const {
+Fixed	Fixed::operator - (Fixed const &other) const
+{
 	return Fixed(this->toFloat() - other.toFloat());
 }
 
-Fixed	Fixed::operator * (Fixed const &other) const {
+Fixed	Fixed::operator * (Fixed const &other) const
+{
 	return Fixed(this->toFloat() * other.toFloat());
 }
 
-Fixed	Fixed::operator / (Fixed const &other) const {
-	return Fixed(this->toFloat() + other.toFloat());
+Fixed	Fixed::operator / (Fixed const &other) const
+{
+	if (other.toFloat() == 0)
+	{
+		std::cout << "/ 0 is not acceptable" << std::endl;
+		return 0;
+	}
+	return Fixed(this->toFloat() / other.toFloat());
 }
 
 Fixed &	Fixed::operator ++ (void)

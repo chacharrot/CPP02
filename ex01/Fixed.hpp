@@ -6,15 +6,16 @@ class Fixed {
 
 public:
 	Fixed ();
-	Fixed ( int const valueInt );
-	Fixed ( const Fixed &other );
-	Fixed ( float const valueFloat );
+	Fixed (int const valueInt);
+	Fixed (const Fixed &other);
+	Fixed (float const valueFloat);
+	Fixed &	operator = (Fixed const &other);
 	~Fixed();
 
-	int		toInt ( void ) const;
-	float	toFloat ( void ) const;
-	int		getRawBits ( void ) const;
-	void	setRawBits ( int const raw );
+	int		toInt (void) const;
+	float	toFloat (void) const;
+	int		getRawBits (void) const;
+	void	setRawBits (int const raw);
 	
 	
 	Fixed &	operator = (Fixed const &other);

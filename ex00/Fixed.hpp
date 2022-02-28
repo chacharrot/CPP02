@@ -11,9 +11,9 @@ class Fixed
 			Fixed();
 			Fixed(const Fixed &rhs);
 			~Fixed();
-			int getRawBits(void)const;
-			void setRawBits(int const raw);
-			Fixed& operator = (Fixed &other);
+			int		getRawBits(void)const;
+			void	setRawBits(int const raw);
+			Fixed&	operator = (Fixed &other);
 
 };
 

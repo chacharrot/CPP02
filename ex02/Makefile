@@ -1,4 +1,4 @@
-NAME = orthodox
+NAME = orthodox2
 CC = c++
 
 CFLAGS = -Wall -Werror -Wextra -std=c++98
